@@ -1,10 +1,12 @@
 # Setup
 * Fork, clone, yarn install, yarn start
 * Windows users, remember to remove the single quotes from package.json
+* create your .env file
 
 # Database
 * Make sure you are running mongoDB or using Mlab
 * Make sure you have a database called “authentication-practice”
+* put your database url in the env file
 
 # Client
 
