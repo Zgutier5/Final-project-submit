@@ -11,7 +11,16 @@ const TopNavbar = (props) => {
           <NavItem onClick={props.onSignOut}>Sign Out</NavItem>
         </Nav>
         <Nav pullRight>
-          <Link to="/secret"><Navbar.Text>Secret</Navbar.Text></Link>
+          <Link to="/secret"><Navbar.Text>Cart</Navbar.Text></Link>
+        </Nav>
+        <Nav pullRight>
+          <Link to="/pets"><Navbar.Text>Pets</Navbar.Text></Link>
+        </Nav>
+        <Nav pullRight>
+          <Link to="/electronics"><Navbar.Text>Electronics</Navbar.Text></Link>
+        </Nav>
+        <Nav pullRight>
+          <Link to="/autos"><Navbar.Text>Auto Parts</Navbar.Text></Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

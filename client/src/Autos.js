@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import SearchPage from "./Search";
 
-class Secret extends Component {
+class Autos extends Component {
   constructor() {
     super();
 
@@ -12,7 +13,7 @@ class Secret extends Component {
   componentDidMount() {
     let token = localStorage.getItem("token");
 
-    fetch("/api/secret", {
+    fetch("/api/autos", {
       headers:{
         "Authoriazation":token
       }
@@ -27,9 +28,12 @@ class Secret extends Component {
 
   render() {
     return (
-      <h1>{this.state.message}</h1>
+      <div>
+        <h1>Auto Parts!</h1>
+        <SearchPage/>
+      </div>
     );
   }
 }
 
-export default Secret;
+export default Autos;

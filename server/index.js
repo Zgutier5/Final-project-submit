@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/UserRoutes");
 const sessionRoutes = require("./routes/SessionRoutes");
 const authenticationRoutes = require("./routes/AuthenticationRoutes");
+const electronicRoutes = require("./routes/ElectronicRoutes");
 
 mongoose.set("debug", true);
 mongoose.Promise = global.Promise;
@@ -39,6 +40,7 @@ function startWebServer(){
   app.use(userRoutes);
   app.use(sessionRoutes);
   app.use(authenticationRoutes);
+  app.use(electronicRoutes);
 
   app.get("/api/canigetthis", function (req, res) {
     res.send("You got the data. You are authenticated");
@@ -47,13 +49,17 @@ function startWebServer(){
     res.send(`The current user is ${req.user.username}`);
   });
 
+  app.get('/api/electronics', (req, res) => {
+    res.send(req.electronic);
+  });
+
 
   app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname + '/public/index.html'));
   });
 
   //heroku injects the port number into the PORT env value
-  const port = process.env.PORT || 3001;
+  const port = process.env.PORT || 3000;
   app.listen(port, () => {
     console.log(`Listening on port:${port}`);
   });
