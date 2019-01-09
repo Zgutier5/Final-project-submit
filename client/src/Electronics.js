@@ -27,7 +27,7 @@ class Electronics extends Component {
       <div>
         <h1>Electronics!</h1>
         <SearchPage/>
-         {/* <p>{e}</p> */}
+        
       </div>
     );
   }
