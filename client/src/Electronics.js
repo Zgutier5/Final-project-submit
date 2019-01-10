@@ -6,7 +6,8 @@ class Electronics extends Component {
     super();
 
     this.state = {
-      electronics: ""
+      electronics: [],
+      isLoading: true 
     };
   }
 
@@ -14,20 +15,36 @@ class Electronics extends Component {
     fetch("/api/electronics")
     .then(res=> res.json())
     .then(electronics => {
-    this.setState({electronics})
+    this.setState({electronics, isLoading: false});
     });
   }
 
-  
+  listElectronics = () => {
+    if (!this.state.isLoading) {
+      console.log(this.state.electronics)
+      return this.state.electronics.map((item, idx)=> {
+        return (
+          <div>
+            <div></div>
+            <img src={item.image}/>
+          <p>{item.product} - {item.price}</p>
+          </div>)
+      })
+    }
+  }
 
   render() {
-   const e = this.state.electronics
+   
     
     return (
       <div>
         <h1>Electronics!</h1>
+        <p>test </p>
         <SearchPage/>
         
+        <div>
+        {this.listElectronics()}
+        </div>
       </div>
     );
   }

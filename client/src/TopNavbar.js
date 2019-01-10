@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
+import { LinkContainer } from 'react-router-bootstrap';
+ 
 const TopNavbar = (props) => {
   return (
     <Navbar inverse collapseOnSelect>
@@ -11,25 +12,25 @@ const TopNavbar = (props) => {
           <NavItem onClick={props.onSignOut}>Sign Out</NavItem>
         </Nav>
         <Nav pullRight>
-          <Link to="/secret"><Navbar.Text>Cart</Navbar.Text></Link>
+          <LinkContainer to="/secret"><NavItem>Cart</NavItem></LinkContainer>
         </Nav>
         <Nav pullRight>
-          <Link to="/pets"><Navbar.Text>Pets</Navbar.Text></Link>
+          <LinkContainer to="/pets"><NavItem>Pets</NavItem></LinkContainer>
         </Nav>
         <Nav pullRight>
-          <Link to="/electronics"><Navbar.Text>Electronics</Navbar.Text></Link>
+          <LinkContainer to="/electronics"><NavItem>Electronics</NavItem></LinkContainer>
         </Nav>
         <Nav pullRight>
-          <Link to="/autos"><Navbar.Text>Auto Parts</Navbar.Text></Link>
+          <LinkContainer to="/autos"><NavItem>Auto Parts</NavItem></LinkContainer>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
   );
 };
-
+ 
 TopNavbar.propTypes = {
   onSignOut: PropTypes.func.isRequired,
   showNavItems: PropTypes.bool.isRequired
 };
-
+ 
 export default TopNavbar;

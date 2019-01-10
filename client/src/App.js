@@ -13,7 +13,8 @@ class App extends Component {
     super();
     this.state = {
       signUpSignInError: "",
-      authenticated: localStorage.getItem("token") || false
+      token: localStorage.getItem("token") || null,
+      authenticated:  false
     };
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
@@ -39,7 +40,8 @@ class App extends Component {
         localStorage.setItem("token", token);
         this.setState({
           signUpSignInError: "",
-          authenticated: token
+          token: token,
+          authenticated: true
         });
       });
     }
@@ -65,7 +67,8 @@ class App extends Component {
         localStorage.setItem("token", token);
         this.setState({
           signUpSignInError: "",
-          authenticated: token
+          token: token,
+          authenticated: true
         });
       });
     }
@@ -78,7 +81,7 @@ class App extends Component {
     });
   }
 
-  renderSignUpSignIn() {
+  renderSignUpSignIn = () => {
     return (
       <SignUpSignIn 
         error={this.state.signUpSignInError} 
@@ -88,7 +91,7 @@ class App extends Component {
     );
   }
 
-  renderApp() {
+  renderApp = () => {
     return (
       <div>
         <Switch>
@@ -104,11 +107,11 @@ class App extends Component {
   }
 
   render() {
-    let whatToShow = "";
+    let whatToShow;
     if (this.state.authenticated) {
-      whatToShow = this.renderApp();
+      whatToShow = this.renderApp;
     } else {
-      whatToShow = this.renderSignUpSignIn();
+      whatToShow = this.renderSignUpSignIn;
     }
        
     return (
@@ -117,7 +120,7 @@ class App extends Component {
           <TopNavbar 
             showNavItems={this.state.authenticated} 
             onSignOut={this.handleSignOut} />
-          {whatToShow}
+          {whatToShow()}
         </div>
       </BrowserRouter>
     );
