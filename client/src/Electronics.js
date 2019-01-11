@@ -52,7 +52,7 @@ class Electronics extends Component {
     return (
       <div>
         <h1>Electronics!</h1>
-        
+        <br></br>
         <div>
         {this.listElectronics()}
         
