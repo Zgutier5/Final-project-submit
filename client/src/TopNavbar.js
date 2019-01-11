@@ -14,15 +14,11 @@ const TopNavbar = (props) => {
         <Nav pullRight>
           <LinkContainer to="/secret"><NavItem>Cart</NavItem></LinkContainer>
         </Nav>
-        <Nav pullRight>
-          <LinkContainer to="/pets"><NavItem>Pets</NavItem></LinkContainer>
-        </Nav>
+        
         <Nav pullRight>
           <LinkContainer to="/electronics"><NavItem>Electronics</NavItem></LinkContainer>
         </Nav>
-        <Nav pullRight>
-          <LinkContainer to="/autos"><NavItem>Auto Parts</NavItem></LinkContainer>
-        </Nav>
+        
       </Navbar.Collapse>
     </Navbar>
   );

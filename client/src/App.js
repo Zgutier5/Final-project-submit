@@ -14,7 +14,7 @@ class App extends Component {
     this.state = {
       signUpSignInError: "",
       token: localStorage.getItem("token") || null,
-      authenticated:  false
+      authenticated:  true
     };
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
@@ -97,9 +97,9 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => <h1>I am protected!</h1>} />
           <Route exact path="/secret" component={Secret} />
-          <Route exact path="/pets" component={Pets} />
+
           <Route exact path="/electronics" component={Electronics} />
-          <Route exact path="/autos" component={Autos} />
+          
           <Route render={() => <h1>NOT FOUND!</h1>} />
         </Switch>
       </div>

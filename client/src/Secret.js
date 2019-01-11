@@ -1,35 +1,10 @@
 import React, { Component } from "react";
+// import Cart from './ShoppingCart/Cart'
 
-class Secret extends Component {
-  constructor() {
-    super();
 
-    this.state = {
-      message: ""
-    };
-  }
-
-  componentDidMount() {
-    let token = localStorage.getItem("token");
-
-    fetch("/api/secret", {
-      headers:{
-        "Authoriazation":token
-      }
-    }).then((res) => {
-      return res.text();
-    }).then((data) => {
-      this.setState({
-        message: data
-      });
-    });
-  }
-
-  render() {
-    return (
-      <h1>{this.state.message}</h1>
-    );
-  }
+export default function CartPage(props) {
+  return <div>
+    <h2>My Cart</h2>
+    {/* <Cart /> */}
+  </div>
 }
-
-export default Secret;

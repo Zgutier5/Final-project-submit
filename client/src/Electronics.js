@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import SearchPage from "./Search";
+import AlertDismissable from "./AddToCartButton";
+
 
 class Electronics extends Component {
   constructor() {
@@ -19,19 +21,30 @@ class Electronics extends Component {
     });
   }
 
-  listElectronics = () => {
+  
+
+  listElectronics = (props) => {
     if (!this.state.isLoading) {
       console.log(this.state.electronics)
+      
       return this.state.electronics.map((item, idx)=> {
         return (
           <div>
-            <div></div>
-            <img src={item.image}/>
-          <p>{item.product} - {item.price}</p>
-          </div>)
+            <div class="col-md-6">
+            <br></br>
+            <img  src={item.image}/>
+            <p>{item.product} - {item.price}</p> 
+            
+            <AlertDismissable/>
+            </div> 
+          </div>
+          
+          )
       })
     }
   }
+
+  
 
   render() {
    
@@ -39,12 +52,12 @@ class Electronics extends Component {
     return (
       <div>
         <h1>Electronics!</h1>
-        <p>test </p>
-        <SearchPage/>
         
         <div>
         {this.listElectronics()}
+        
         </div>
+        
       </div>
     );
   }
